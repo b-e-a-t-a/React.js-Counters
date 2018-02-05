@@ -54,20 +54,29 @@ var Counter = React.createClass({
 
 
   render: function() {
-    return (
-      React.createElement('div', {className: 'counterApp'}, 
-        React.createElement('div', {onClick: this.increment},
-          React.createElement('button', {}, 'Dodaj jeden ' + this.state.counter)),
-        React.createElement('div', {onClick: this.decrement},
-          React.createElement('button', {}, 'Odejmij jeden ' + this.state.counter)),
-      )
-    )
-  }
+        return React.createElement('div', {className: 'container'},
+            React.createElement('h1', {}, 'COUNTER'),
+            React.createElement('button', {
+                className: 'btn btn-lg btn-primary',
+                onClick: this.increment
+            }, 'increment +'),
+            React.createElement('span', {}, 'counter: ' + this.state.counter),
+            React.createElement('button', {
+                className: 'btn btn-lg btn-warning',
+                onClick: this.decrement
+            }, 'decrement -'),
+        );
+    }
 });
 
 
 
 
-var element = React.createElement(Counter);
+var element =
+    React.createElement('div', {},
+        React.createElement(Counter, {}),
+        React.createElement(Counter, {}),
+        React.createElement(Counter, {})
+    );
 
 ReactDOM.render(element, document.getElementById('app'));
